@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tic Tac Toe Pro by Yash</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="game-container">
     <h1>Tic Tac Toe</h1>
+    <p id="status">Choose a mode to start</p>
 
     <div class="top-controls">
       <button id="vsPlayer">2 Player</button>
@@ -30,13 +31,12 @@
     </div>
 
     <div class="bottom-controls">
-      <p id="status"></p>
-      <button id="hintBtn" class="hidden">💡 Hint</button>
-      <button id="undoBtn" class="hidden">↩️ Undo</button>
       <button id="reset" class="hidden">🔁 Restart</button>
+      <button id="undoBtn" class="hidden">↩️ Undo</button>
+      <button id="hintBtn" class="hidden">💡 Hint</button>
     </div>
 
-    <p class="watermark">Made with ❤️ by Yash</p>
+    <footer>Created by Yash 🔥</footer>
   </div>
 
   <audio id="moveSound" src="move.mp3"></audio>

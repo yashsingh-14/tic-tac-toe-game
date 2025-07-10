@@ -1,91 +1,70 @@
 
-:root {
-  --bg-color: #f0f0f0;
-  --text-color: #222;
-  --cell-bg: #ffffff;
-  --cell-hover: #e0e0e0;
-  --cell-win: #00e676;
-  --glass: rgba(255,255,255,0.3);
-}
-body.dark {
-  --bg-color: #1f1f1f;
-  --text-color: #f0f0f0;
-  --cell-bg: #2c3e50;
-  --cell-hover: #34495e;
-  --glass: rgba(0,0,0,0.3);
-}
 body {
-  margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-.game-container {
-  width: 95%;
-  max-width: 420px;
-  padding: 20px;
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
-  background: var(--glass);
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
   text-align: center;
+  transition: background-color 0.4s;
 }
-h1 {
-  margin-bottom: 15px;
-}
-.top-controls button,
-.bottom-controls button {
-  margin: 6px;
-  padding: 10px 15px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  background-color: #00b09b;
+.dark {
+  background-color: #1e1e1e;
   color: white;
 }
-.top-controls button:hover,
-.bottom-controls button:hover {
-  background-color: #00796b;
+.game-container {
+  margin-top: 40px;
 }
 #board {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
   gap: 10px;
-  margin: 15px 0;
+  justify-content: center;
+  margin: 20px auto;
 }
 .cell {
-  height: 80px;
-  font-size: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--cell-bg);
+  background: linear-gradient(145deg, #ffffff, #d1d1d1);
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
   cursor: pointer;
-  color: var(--text-color);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
 }
 .cell:hover {
-  background-color: var(--cell-hover);
+  transform: scale(1.05);
 }
-.cell.winning {
-  background-color: var(--cell-win) !important;
-  animation: pulse 1s infinite;
+.winning {
+  background-color: #4caf50 !important;
+  color: white !important;
+  animation: flash 0.5s alternate infinite;
 }
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-  100% { transform: scale(1); }
+@keyframes flash {
+  from { background-color: #4caf50; }
+  to { background-color: #81c784; }
 }
-.watermark {
-  margin-top: 10px;
-  font-size: 0.85rem;
-  color: #aaa;
+button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  background-color: #2196f3;
+  color: white;
+  transition: background-color 0.3s;
+}
+button:hover {
+  background-color: #1e88e5;
 }
 .hidden {
   display: none;
+}
+footer {
+  margin-top: 30px;
+  font-size: 0.9rem;
+  color: gray;
 }

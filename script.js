@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   const cells = document.querySelectorAll(".cell");
   const statusText = document.getElementById("status");
@@ -28,6 +27,13 @@ document.addEventListener("DOMContentLoaded", () => {
     [0,4,8],[2,4,6]
   ];
 
+  function playSound(sound) {
+    if (sound) {
+      sound.currentTime = 0;
+      sound.play().catch(() => {});
+    }
+  }
+
   function startGame(mode) {
     boardState = ["", "", "", "", "", "", "", "", ""];
     currentPlayer = "X";
@@ -51,18 +57,18 @@ document.addEventListener("DOMContentLoaded", () => {
     boardState[index] = currentPlayer;
     e.target.textContent = currentPlayer;
     lastMove = index;
-    moveSound.play();
+    playSound(moveSound);
 
     if (checkWin()) {
       statusText.textContent = `Player ${currentPlayer} Wins!`;
-      winSound.play();
+      playSound(winSound);
       gameActive = false;
       return;
     }
 
     if (!boardState.includes("")) {
       statusText.textContent = "It's a Draw!";
-      drawSound.play();
+      playSound(drawSound);
       gameActive = false;
       return;
     }
@@ -81,18 +87,18 @@ document.addEventListener("DOMContentLoaded", () => {
     boardState[move] = "O";
     cells[move].textContent = "O";
     lastMove = move;
-    moveSound.play();
+    playSound(moveSound);
 
     if (checkWin()) {
       statusText.textContent = `Computer Wins!`;
-      winSound.play();
+      playSound(winSound);
       gameActive = false;
       return;
     }
 
     if (!boardState.includes("")) {
       statusText.textContent = "It's a Draw!";
-      drawSound.play();
+      playSound(drawSound);
       gameActive = false;
       return;
     }
